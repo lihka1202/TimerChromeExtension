@@ -15,5 +15,22 @@ chrome.alarms.onAlarm.addListener((alarms) => {
             {
                 text : `${time + 1}`
             })
+
+
+        // Get the time-period data
+        chrome.storage.sync.get(["time"],
+        (res)=> {
+            const notificationTime = res.time ?? 1000
+            if(time%notificationTime==0) { // not get spammed
+                self.registration.showNotification("Chrome Timer Extension", { //needs to be self, not this
+                    body : `${notificationTime} second has passed`,
+                    icon : "chronometer.png",
+                })
+            }
+            
+        })
+
+
+        
     })
 })
