@@ -34,3 +34,24 @@ chrome.storage.sync.get(
         nameElement.textContent = `Your name is: ${name}`
     }
 )
+
+const startBtn = document.getElementById("start-btn")
+const stopBtn = document.getElementById("stop-btn")
+const resetBtn = document.getElementById("reset-btn")
+
+startBtn.addEventListener("click", () => {
+    chrome.storage.local.set({
+        isRunning : true
+    })
+})
+stopBtn.addEventListener("click", () => {
+    chrome.storage.local.set({
+        isRunning : false
+    })
+})
+resetBtn.addEventListener("click", () => {
+    chrome.storage.local.set({
+        timer : 0,
+        isRunning : false
+    })
+})
