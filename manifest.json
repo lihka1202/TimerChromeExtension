@@ -1,8 +1,8 @@
 {
     "manifest_version" : 3,
-    "name" : "Timer Extension",
+    "name" : "Time Tracker",
     "version" : "1.0.0",
-    "description" : "Hello World!",
+    "description" : "Designed to help people focus!!",
     "icons" : {
         "16" : "chronometer.png",
         "48" : "chronometer.png",
@@ -14,12 +14,7 @@
             "24" : "chronometer.png",
             "32" : "chronometer.png"
         },
-        "default_title": "Timer Extension Action Title",
-        "default_popup" : "popup.html"
-    },
-    "options_page" : "options.html",
-    "permissions" : ["storage", "alarms", "notifications"],
-    "background" : {
-        "service_worker" : "background.js"
+        "default_title": "Time Tracker",
+        "default_popup" : "popup/popup.html"
     }
 }

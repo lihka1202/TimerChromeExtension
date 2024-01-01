@@ -1,0 +1,10 @@
+body{
+    height: 400;
+    width: 300;
+}
+
+.header-image{
+    display: flex;
+    justify-content: center;
+    height: 70px;
+}
