@@ -8,3 +8,7 @@ body{
     justify-content: center;
     height: 70px;
 }
+.time-remaining {
+    display: flex;
+    justify-content: center;
+}
