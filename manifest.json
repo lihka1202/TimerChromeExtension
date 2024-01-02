@@ -16,5 +16,6 @@
         },
         "default_title": "Time Tracker",
         "default_popup" : "popup/popup.html"
-    }
+    },
+    "permissions" : ["storage"]
 }

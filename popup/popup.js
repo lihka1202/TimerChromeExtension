@@ -1,4 +1,24 @@
-const tasks = []
+let tasks = []
+
+//Read from the storage to see if it already exists
+chrome.storage.sync.get(["tasks"], (res) => {
+    tasks = res.tasks ? res.tasks : []
+    renderTasks()
+})
+
+function saveTasks() {
+    chrome.storage.sync.set({
+        tasks : tasks
+    })
+}
+
+function renderTasks() {
+    //Use forEach to loop and re-render
+    tasks.forEach((taskText, taskNum) => {
+        // If you dont mention the taskText you end up with a weird error
+        renderTask(taskNum)
+    })
+}
 
 //Logic to delete the task here
 function deleteTask (taskNum){
@@ -11,11 +31,11 @@ function deleteTask (taskNum){
     //Empty the task container
     taskContainer.textContent = ""
 
-    //Use forEach to loop and re-render
-    tasks.forEach((taskText, taskNum) => {
-        // If you dont mention the taskText you end up with a weird error
-        renderTask(taskNum)
-    })
+    renderTasks()
+
+    saveTasks()
+
+    
 }
 
 // Move the rendering logic here
@@ -34,6 +54,7 @@ function renderTask(taskNum) {
     //Check if the input changes and update it
     taskInput.addEventListener('change', ()=> {
         tasks[taskNum] = taskInput.value
+        saveTasks()
     })
 
     //Button creation
@@ -42,6 +63,7 @@ function renderTask(taskNum) {
     taskBtn.value = 'X'
     taskBtn.addEventListener('click', ()=> {
         deleteTask(taskNum)
+        saveTasks()
     })
 
     //Append the data into the div
@@ -61,6 +83,7 @@ document.getElementById("add-task-btn").addEventListener(
         const taskNum = tasks.length
         tasks.push("")
         renderTask(taskNum)
+        saveTasks()
 
     }
 )
