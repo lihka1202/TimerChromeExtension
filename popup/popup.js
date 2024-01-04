@@ -1,5 +1,9 @@
 let tasks = [];
 
+function doSomthingrandom() {
+    console.log("do something random for no reason just to see");
+}
+
 //Read from the storage to see if it already exists
 chrome.storage.sync.get(["tasks"], (res) => {
     tasks = res.tasks ? res.tasks : [];
@@ -18,6 +22,8 @@ function renderTasks() {
         renderTask(taskNum);
     });
 }
+
+//Testing the linter logic by making a random function
 
 //Logic to delete the task here
 function deleteTask(taskNum) {
