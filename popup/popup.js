@@ -3,11 +3,40 @@ let tasks = [];
 // Get a reference to the timer button
 const startTimerBtn = document.getElementById("start-timer-btn");
 
-// if Start Timer is clicked, just make sure to set the isRunning variable to true
-startTimerBtn.addEventListener("click", () => {
-    chrome.storage.local.set({
-        isRunning: true,
+function updateTimer() {
+    chrome.storage.local.get(["timer"], (res) => {
+        const timeHolder = document.getElementById("time-remaining");
+        timeHolder.textContent = res.timer;
     });
+}
+
+// if Start Timer is clicked, toggle the value of the isRunning var, and also change the text
+startTimerBtn.addEventListener("click", () => {
+    chrome.storage.local.get(["isRunning"], (res) => {
+        let isRunning = !res.isRunning;
+        // Set the value first
+        chrome.storage.local.set({
+            isRunning: isRunning,
+        });
+
+        // Toggle the words on the button, and switch when needed
+        startTimerBtn.textContent = isRunning ? "Stop Timer" : "Start Timer";
+    });
+});
+
+// Place isRunning to off and set the timer variable to 0, reset text content
+const resetTimerBtn = document.getElementById("reset-timer-btn");
+
+resetTimerBtn.addEventListener("click", () => {
+    chrome.storage.local.set(
+        {
+            timer: 0,
+            isRunning: false,
+        },
+        () => {
+            startTimerBtn.textContent = "Start Timer";
+        },
+    );
 });
 
 //Read from the storage to see if it already exists
