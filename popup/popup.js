@@ -3,12 +3,19 @@ let tasks = [];
 // Get a reference to the timer button
 const startTimerBtn = document.getElementById("start-timer-btn");
 
+// This is to update the timer on the screen
 function updateTimer() {
     chrome.storage.local.get(["timer"], (res) => {
         const timeHolder = document.getElementById("time-remaining");
         timeHolder.textContent = res.timer;
     });
 }
+
+// Call the function once atleast
+updateTimer();
+
+// Set intervals in 1 second to trigger this for atleast a 1000 times
+setInterval(updateTimer, 1000);
 
 // if Start Timer is clicked, toggle the value of the isRunning var, and also change the text
 startTimerBtn.addEventListener("click", () => {
