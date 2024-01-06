@@ -9,7 +9,10 @@ function updateTimer() {
         const timeHolder = document.getElementById("time-remaining");
         // ceil to prevent decimal issues
         const minutes = 25 - Math.ceil(res.timer / 60);
-        const seconds = 60 - (res.timer % 60);
+        let seconds = "00";
+        if (res.timer % 60 != 0) {
+            seconds = 60 - (res.timer % 60);
+        }
         timeHolder.textContent = `${minutes}:${seconds}`;
     });
 }
