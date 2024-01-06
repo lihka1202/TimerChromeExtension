@@ -12,7 +12,7 @@ function updateTimer() {
         let seconds = "00";
         // Avoid 25:60
         if (res.timer % 60 != 0) {
-            seconds = 60 - (res.timer % 60);
+            seconds = `${60 - (res.timer % 60)}`.padStart(2, "0");
         }
         timeHolder.textContent = `${minutes}:${seconds}`;
     });
