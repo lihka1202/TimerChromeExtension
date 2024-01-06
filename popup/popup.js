@@ -7,7 +7,9 @@ const startTimerBtn = document.getElementById("start-timer-btn");
 function updateTimer() {
     chrome.storage.local.get(["timer"], (res) => {
         const timeHolder = document.getElementById("time-remaining");
-        timeHolder.textContent = res.timer;
+        const minutes = 25 - res.timer / 60;
+        const seconds = 60 - (res.timer % 60);
+        timeHolder.textContent = `${minutes}:${seconds}`;
     });
 }
 
