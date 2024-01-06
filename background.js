@@ -1,6 +1,5 @@
 // Create the basic alarm
 chrome.alarms.create("Pomodorro Timer", { periodInMinutes: 1 / 60 });
-
 // Add a listener to track the changes
 chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name == "Pomodorro Timer") {
@@ -8,6 +7,7 @@ chrome.alarms.onAlarm.addListener((alarm) => {
     chrome.storage.local.get(["timer", "isRunning"], (res) => {
       if (res.isRunning) {
         res.timer = res.timer + 1;
+        console.log(res.timer);
         // Once the timer has been updated, we want to set the value
         chrome.storage.local.set({
           timer: res.timer,

@@ -1,5 +1,15 @@
 let tasks = [];
 
+// Get a reference to the timer button
+const startTimerBtn = document.getElementById("start-timer-btn");
+
+// if Start Timer is clicked, just make sure to set the isRunning variable to true
+startTimerBtn.addEventListener("click", () => {
+    chrome.storage.local.set({
+        isRunning: true,
+    });
+});
+
 //Read from the storage to see if it already exists
 chrome.storage.sync.get(["tasks"], (res) => {
     tasks = res.tasks ? res.tasks : [];
