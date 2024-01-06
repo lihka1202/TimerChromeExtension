@@ -8,8 +8,9 @@ function updateTimer() {
     chrome.storage.local.get(["timer"], (res) => {
         const timeHolder = document.getElementById("time-remaining");
         // ceil to prevent decimal issues
-        const minutes = 25 - Math.ceil(res.timer / 60);
+        const minutes = `${25 - Math.ceil(res.timer / 60)}`.padStart(2, "0");
         let seconds = "00";
+        // Avoid 25:60
         if (res.timer % 60 != 0) {
             seconds = 60 - (res.timer % 60);
         }
