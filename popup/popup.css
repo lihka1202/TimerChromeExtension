@@ -1,14 +1,15 @@
-body{
+body {
     height: 400px;
     width: 300px;
 }
 
-.header-image{
+.header-image {
     display: flex;
     justify-content: center;
     height: 70px;
 }
-.time-remaining {
+
+.time-remainder {
     display: flex;
     justify-content: center;
 }
