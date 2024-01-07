@@ -17,12 +17,9 @@
         "default_title": "Time Tracker",
         "default_popup": "popup/popup.html"
     },
-    "permissions": [
-        "storage",
-        "alarms",
-        "notifications"
-    ],
+    "permissions": ["storage", "alarms", "notifications"],
     "background": {
         "service_worker": "background.js"
-    }
+    },
+    "options_page": "options/options.html"
 }
