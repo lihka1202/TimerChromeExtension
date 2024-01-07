@@ -22,3 +22,9 @@ saveBtn.addEventListener('click', () => {
     timer: 0,
   });
 });
+
+// Get the time option saved from the storage and assign to the HTML element
+chrome.storage.local.get(['timeOption'], (res) => {
+  // save the default value in place
+  timeOption.value = res.timeOption ? res.timeOption : 25;
+});
