@@ -5,10 +5,10 @@ const startTimerBtn = document.getElementById('start-timer-btn');
 
 // This is to update the timer on the screen
 function updateTimer() {
-  chrome.storage.local.get(['timer'], (res) => {
+  chrome.storage.local.get(['timer', 'timeOption'], (res) => {
     const timeHolder = document.getElementById('time-remaining');
     // ceil to prevent decimal issues
-    const minutes = `${25 - Math.ceil(res.timer / 60)}`.padStart(2, '0');
+    const minutes = `${res.timeOption - Math.ceil(res.timer / 60)}`.padStart(2, '0');
     let seconds = '00';
     // Avoid 25:60
     if (res.timer % 60 !== 0) {
