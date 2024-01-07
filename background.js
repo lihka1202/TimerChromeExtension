@@ -5,11 +5,23 @@ chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === 'Pomodorro Timer') {
     // Get the local variables and increment if we need to
     chrome.storage.local.get(['timer', 'isRunning'], (res) => {
+      let timer = res.timer + 1;
+
       if (res.isRunning) {
-        res.timer += 1;
+        timer += 1;
+        if (res.timer === 25 * 60) {
+          // Change to using the tabs
+          this.registration.showNotification('Pomodoro Timer', {
+            body: '25 mins has passed',
+            icon: 'chronometer.png',
+          });
+          timer = 0;
+          res.isRunning = false;
+        }
         // Once the timer has been updated, we want to set the value
         chrome.storage.local.set({
-          timer: res.timer,
+          timer,
+          isRunning: res.isRunning,
         });
       }
     });
