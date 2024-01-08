@@ -43,26 +43,6 @@ body {
 	}
 }
 
-/* .center {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	position: absolute;
-	margin: auto;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	background: rgba(75, 75, 250, 0.3);
-	border-radius: 3px;
-}
-.center h1 {
-	text-align: center;
-	color: white;
-	font-family: 'Source Code Pro', monospace;
-	text-transform: uppercase;
-} */
-
 #btn-container {
 	display: flex;
 	justify-content: space-evenly;
@@ -78,15 +58,22 @@ body {
 	width: 100px;
 	height: 50px;
 	cursor: pointer;
+	background: linear-gradient(to right, black 50%, white 50%);
+	background-size: 200% 100%;
+	background-position: right bottom;
+	transition: all 0.5s ease-out;
 }
 
+/* When ones hovers over the button */
 #btn-container > button:hover {
-	font-family: fantasy;
-	background-color: black;
+	font-style: oblique;
+	/* background-color: black; */
 	color: white;
+	background-position: left bottom;
 	box-shadow: 0 0 5px black, 0 0 25px grey, 0 0 50px grey, 0 0 100px grey;
 }
 
+/* When the button is clicked */
 #btn-container > button:active {
 	transform: scale(0.9);
 }
