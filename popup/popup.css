@@ -87,7 +87,9 @@ body {
 	box-shadow: 0 0 5px black, 0 0 25px grey, 0 0 50px grey, 0 0 100px grey;
 }
 
-/* Button sliding mechanism */
+#btn-container > button:active {
+	transform: scale(0.9);
+}
 
 .header-image {
 	display: flex;
