@@ -8,7 +8,7 @@ chrome.alarms.onAlarm.addListener((alarm) => {
       let timer = res.timer + 1;
 
       if (res.isRunning) {
-        if (res.timer === 25 * res.timeOption) {
+        if (res.timer === 60 * res.timeOption) {
           // Change to using the tabs
           this.registration.showNotification('Pomodoro Timer', {
             body: `${res.timeOption} minutes have passed! Great Job!`,
