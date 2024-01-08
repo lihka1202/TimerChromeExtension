@@ -15,7 +15,7 @@ body {
 	-webkit-animation-direction: alternate;
 	animation-direction: alternate;
 	height: 400px;
-	width: 300px;
+	width: 400px;
 }
 
 @-webkit-keyframes slidein {
@@ -59,6 +59,24 @@ body {
 	font-family: 'Source Code Pro', monospace;
 	text-transform: uppercase;
 } */
+
+#btn-container {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+#btn-container > button {
+	background-color: whitesmoke;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	padding: 8px;
+	font-weight: bold;
+	width: 100px;
+	cursor: pointer;
+}
+
+/* Button sliding mechanism */
 
 .header-image {
 	display: flex;
