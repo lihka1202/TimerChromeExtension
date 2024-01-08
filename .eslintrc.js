@@ -23,6 +23,5 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'no-use-before-define': 'off',
   },
 };
