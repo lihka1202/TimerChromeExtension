@@ -70,7 +70,7 @@ body {
 	/* background-color: black; */
 	color: white;
 	background-position: left bottom;
-	box-shadow: 0 0 5px black, 0 0 25px grey, 0 0 50px grey, 0 0 100px grey;
+	box-shadow: 0 0 5px grey, 0 0 25px black, 0 0 50px black, 0 0 100px black;
 }
 
 /* When the button is clicked */
@@ -87,4 +87,8 @@ body {
 .time-remainder {
 	display: flex;
 	justify-content: center;
+}
+
+#time-remaining {
+	font-size: 30px;
 }
