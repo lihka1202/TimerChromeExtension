@@ -86,7 +86,14 @@ body {
 	padding: 20px;
 }
 
-.task-delete-button {
+.task-delete-btn {
+	outline: none;
+	border: none;
+	height: 25px;
+	width: 25px;
+	border-radius: 4px;
+	cursor: pointer;
+	font-weight: 700;
 }
 
 .task-input {
