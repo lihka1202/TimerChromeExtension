@@ -97,6 +97,7 @@ function renderTask(taskNum) {
   const taskInput = document.createElement('input');
   taskInput.type = 'text';
   taskInput.placeholder = 'Enter a task..';
+  taskInput.className = 'task-input';
 
   // Add the value to make sure it exists when deleting
   taskInput.value = tasks[taskNum];
@@ -111,6 +112,7 @@ function renderTask(taskNum) {
   const taskBtn = document.createElement('input');
   taskBtn.type = 'button';
   taskBtn.value = 'X';
+  taskBtn.className = 'task-delete-btn';
   taskBtn.addEventListener('click', () => {
     deleteTask(taskNum);
     saveTasks();

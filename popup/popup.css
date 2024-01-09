@@ -78,6 +78,14 @@ body {
 	transform: scale(0.9);
 }
 
+/* modify the task display list */
+#task-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px;
+}
+
 .header-image {
 	display: flex;
 	justify-content: center;
