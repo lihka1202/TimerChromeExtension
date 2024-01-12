@@ -10,9 +10,14 @@ chrome.alarms.onAlarm.addListener((alarm) => {
       if (res.isRunning) {
         if (res.timer === 60 * res.timeOption) {
           // Change to using the tabs
-          this.registration.showNotification('Pomodoro Timer', {
-            body: `${res.timeOption} minutes have passed! Great Job!`,
-            icon: 'chronometer.png',
+          // this.registration.showNotification('Pomodoro Timer', {
+          //   body: `${res.timeOption} minutes have passed! Great Job!`,
+          //   icon: 'chronometer.png',
+          // });
+          chrome.notifications.create('', {
+            title: 'Time has ended!',
+            message: 'Time has ended!',
+            type: 'basic',
           });
           timer = 0;
           res.isRunning = false;
