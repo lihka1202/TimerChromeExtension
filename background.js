@@ -14,9 +14,10 @@ chrome.alarms.onAlarm.addListener((alarm) => {
           //   body: `${res.timeOption} minutes have passed! Great Job!`,
           //   icon: 'chronometer.png',
           // });
-          chrome.notifications.create('', {
+          chrome.notifications.create({
             title: 'Time has ended!',
             message: 'Time has ended!',
+            iconUrl: 'chronometer.png',
             type: 'basic',
           });
           timer = 0;
